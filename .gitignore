@@ -1,0 +1,7 @@
+kafka_2.11-0.11.0.1/*
+.idea/
+.gradle/
+build/
+stocks.txt
+stuff.txt
+.DS_Store
