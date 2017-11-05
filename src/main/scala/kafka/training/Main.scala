@@ -24,11 +24,15 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future}
 import scala.util.{Failure, Success}
 import akka.pattern.ask
+import streaming.lifecycle.{Device, StreamController}
 
 object Main extends App {
 
   implicit val system = ActorSystem("Funny")
   implicit val mat = ActorMaterializer()
   // start a corresponsing consumer and producer
+
+  system.actorOf(Device.start("34-sdf-34", "ws://echo.websocket.org"), "34-sdf-34")
+
 
 }
