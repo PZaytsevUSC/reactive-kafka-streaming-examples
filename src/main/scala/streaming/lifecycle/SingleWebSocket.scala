@@ -16,7 +16,7 @@ import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Random, Success}
 /**
-  * Created by pzaytsev on 11/4/17.
+  * Stream lifecycle management within an actor
   */
 
 
@@ -96,7 +96,7 @@ object WebSocketMonitor{
 }
 class WebSocketMonitor(id: String, endpoint: String, supervisor: ActorRef)(implicit system: ActorSystem, mat: ActorMaterializer, executionContext: ExecutionContext) {
 
-  val websocket = Http().webSocketClientFlow(WebSocketRequest(s"$endpoint/$id"))
+  val websocket = Http().webSocketClientFlow(WebSocketRequest(s"$endpoint/measurement/$id"))
   val data = Data()
   def outgoing = Source.tick(1 seconds, 1 seconds, ()).map(_ => TextMessage(data.getNext))
 

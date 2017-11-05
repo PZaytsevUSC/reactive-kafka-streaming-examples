@@ -24,7 +24,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future}
 import scala.util.{Failure, Success}
 import akka.pattern.ask
-import streaming.lifecycle.{Device, StreamController}
+import streaming.lifecycle.{Device, StreamController, Webserver}
 
 object Main extends App {
 
@@ -32,7 +32,9 @@ object Main extends App {
   implicit val mat = ActorMaterializer()
   // start a corresponsing consumer and producer
 
-  system.actorOf(Device.start("34-sdf-34", "ws://echo.websocket.org"), "34-sdf-34")
+  Webserver.start()
+
+  system.actorOf(Device.start("1", "ws://localhost:9001"), "1")
 
 
 }
