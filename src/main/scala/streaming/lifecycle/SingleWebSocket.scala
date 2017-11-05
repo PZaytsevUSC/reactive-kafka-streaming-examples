@@ -88,7 +88,7 @@ class Device(id: String, endpoint: String)(implicit materializer: ActorMateriali
 
 
 }
-
+// ws://localhost:9001
 object WebSocketMonitor{
   def apply(id: String, endpoint: String, suprervisor: ActorRef)(implicit system: ActorSystem, mat: ActorMaterializer, executionContext: ExecutionContext) = {
     new WebSocketMonitor(id, endpoint, suprervisor)(system, mat, executionContext)

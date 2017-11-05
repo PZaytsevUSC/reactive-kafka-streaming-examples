@@ -20,7 +20,7 @@ import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.util.{Failure, Success}
 
 /**
-  * Created by pzaytsev on 11/4/17.
+  * Websererver that echos traffic. It can implement statistical computations and stuff like that and return it back
   */
 
 object Webserver{

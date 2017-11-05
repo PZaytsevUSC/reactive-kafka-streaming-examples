@@ -24,17 +24,15 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future}
 import scala.util.{Failure, Success}
 import akka.pattern.ask
+import clustering.simple.StartCluster
+import clustering.transformation.TransformationObject
 import streaming.lifecycle.{Device, StreamController, Webserver}
 
-object Main extends App {
+object Main{
 
-  implicit val system = ActorSystem("Funny")
-  implicit val mat = ActorMaterializer()
-  // start a corresponsing consumer and producer
+  def main(args: Array[String]): Unit = {
+    TransformationObject.start(args)
 
-  Webserver.start()
-
-  system.actorOf(Device.start("1", "ws://localhost:9001"), "1")
-
+  }
 
 }
