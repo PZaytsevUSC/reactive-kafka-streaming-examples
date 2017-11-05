@@ -23,13 +23,12 @@ import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future}
 import scala.util.{Failure, Success}
-
+import akka.pattern.ask
 
 object Main extends App {
 
   implicit val system = ActorSystem("Funny")
   implicit val mat = ActorMaterializer()
-  StockConsumer()
-  StockProducer()
+  // start a corresponsing consumer and producer
 
 }
